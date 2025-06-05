@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil Personal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="" href="index.js">
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <!-- Sección del Perfil -->
+            <div class="profile-section">
+                <img src="https://th.bing.com/th/id/OIP.5VksH1ipZ8lMAnIuL1SUEgHaHF?rs=1&pid=ImgDetMain" alt="Foto de perfil" class="profile-image">
+                <h1 class="profile-name">Desarrollador</h1>
+                <p class="profile-title">Ana Jael Santos Carbajal </p>
+                <p class="profile-description">
+                    Cursé el grado de preparatoria en el CECYTE Emiliano Zapata con un promedio de 9.8 obteniendo el tercer lugar.
+                    Fue ahí cuando encontré y me encariñe de la programación, debido a la facilidad que sentí en su momento, por esa razón 
+                    continue con mis estudios en la Univesidad Tecnologica de Emiliano Zapata, cursando con éxito el TSU en Desarrollo de 
+                    Software Multiplataforma y teniendo seguimiento en la ingenieria en la carrera Desarrollo y Gestión de Software.
+                </p>
+            </div>
+
+            <!-- Sección del Carrusel -->
+            <div class="carousel-section">
+                <h2 class="carousel-title">Lenguajes Favoritos</h2>
+                
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=350&fit=crop" alt="Proyecto 1" class="carousel-image">
+                            <div class="carousel-caption">
+                                <h3>Dashboard Empresarial</h3>
+                                <p>Una aplicación web completa para la gestión de datos empresariales con visualizaciones interactivas y análisis en tiempo real.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=350&fit=crop" alt="Proyecto 2" class="carousel-image">
+                            <div class="carousel-caption">
+                                <h3>App Móvil de Fitness</h3>
+                                <p>Diseño UX/UI para una aplicación móvil de fitness con seguimiento de entrenamientos y planes personalizados.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?w=600&h=350&fit=crop" alt="Proyecto 3" class="carousel-image">
+                            <div class="carousel-caption">
+                                <h3>E-commerce Moderno</h3>
+                                <p>Plataforma de comercio electrónico con sistema de pagos integrado, gestión de inventario y experiencia de usuario optimizada.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=600&h=350&fit=crop" alt="Proyecto 4" class="carousel-image">
+                            <div class="carousel-caption">
+                                <h3>Sistema de Gestión</h3>
+                                <p>Desarrollo de un CRM personalizado para pequeñas empresas con automatización de procesos y reportes avanzados.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-arrow prev" onclick="prevSlide()">‹</button>
+                    <button class="carousel-arrow next" onclick="nextSlide()">›</button>
+                </div>
+                
+                <div class="carousel-nav" id="carouselNav">
+                    <span class="nav-dot active" onclick="goToSlide(0)"></span>
+                    <span class="nav-dot" onclick="goToSlide(1)"></span>
+                    <span class="nav-dot" onclick="goToSlide(2)"></span>
+                    <span class="nav-dot" onclick="goToSlide(3)"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
