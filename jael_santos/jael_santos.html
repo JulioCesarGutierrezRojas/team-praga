@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil Personal</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="" href="index.js">
 </head>
 <body>
     <div class="container">
         <div class="main-content">
-            <!-- Sección del Perfil -->
             <div class="profile-section">
                 <img src="https://th.bing.com/th/id/OIP.5VksH1ipZ8lMAnIuL1SUEgHaHF?rs=1&pid=ImgDetMain" alt="Foto de perfil" class="profile-image">
                 <h1 class="profile-name">Desarrollador</h1>
@@ -23,41 +21,40 @@
                 </p>
             </div>
 
-            <!-- Sección del Carrusel -->
             <div class="carousel-section">
-                <h2 class="carousel-title">Lenguajes Favoritos</h2>
+                <h2 class="carousel-title">Hobbies / Intereses</h2>
                 
                 <div class="carousel-container">
                     <div class="carousel-track" id="carouselTrack">
                         <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=350&fit=crop" alt="Proyecto 1" class="carousel-image">
+                            <img src="https://th.bing.com/th/id/OIP.vb-loef4E2vA0I7iY2pG-wHaE8?rs=1&pid=ImgDetMain" alt="Proyecto 1" class="carousel-image">
                             <div class="carousel-caption">
-                                <h3>Dashboard Empresarial</h3>
-                                <p>Una aplicación web completa para la gestión de datos empresariales con visualizaciones interactivas y análisis en tiempo real.</p>
+                                <h3>Tocar la guitarra</h3>
+                                <p>Este es mi hobbie más fuerte que tengo, me encanta escribir canciones y tocar la guitarra, haciendo esto siento que me expreso más que al hablar, porque es mejor cantar y tocar una melodía que hablar.</p>
                             </div>
                         </div>
                         
                         <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=350&fit=crop" alt="Proyecto 2" class="carousel-image">
+                            <img src="https://th.bing.com/th/id/OIP.EVeiJTDECgAVoQKR5LfhbQHaEj?rs=1&pid=ImgDetMain" alt="Proyecto 2" class="carousel-image">
                             <div class="carousel-caption">
-                                <h3>App Móvil de Fitness</h3>
-                                <p>Diseño UX/UI para una aplicación móvil de fitness con seguimiento de entrenamientos y planes personalizados.</p>
+                                <h3>Salir a nadar</h3>
+                                <p>Me encanta salir con mis seres queridos a nadar u a otro lugar, me gusta pasar el tiempo sin pensar en los pendientes que me faltan por hacer.</p>
                             </div>
                         </div>
                         
                         <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?w=600&h=350&fit=crop" alt="Proyecto 3" class="carousel-image">
+                            <img src="https://th.bing.com/th/id/OIP.FEDHczo8zY1PTNOumGNnwQHaEb?rs=1&pid=ImgDetMain" alt="Proyecto 3" class="carousel-image">
                             <div class="carousel-caption">
-                                <h3>E-commerce Moderno</h3>
-                                <p>Plataforma de comercio electrónico con sistema de pagos integrado, gestión de inventario y experiencia de usuario optimizada.</p>
+                                <h3>Viajar en moto</h3>
+                                <p>Cuando tomé por primera vez mi moto, supe que amaría salir todos los días en ella... Me encanta conducir moto y más cuando hay un atardecer, sientes el aire rozar tu piel...</p>
                             </div>
                         </div>
                         
                         <div class="carousel-slide">
-                            <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=600&h=350&fit=crop" alt="Proyecto 4" class="carousel-image">
+                            <img src="https://th.bing.com/th/id/OIP.7f7D0BmBBmUYnZDXl1LakgHaFN?rs=1&pid=ImgDetMain" alt="Proyecto 4" class="carousel-image">
                             <div class="carousel-caption">
-                                <h3>Sistema de Gestión</h3>
-                                <p>Desarrollo de un CRM personalizado para pequeñas empresas con automatización de procesos y reportes avanzados.</p>
+                                <h3>Recorrer el mundo</h3>
+                                <p>Aunque aún no llego a esta parte, me encanta pensar que algún día podré lograrlo, irme de viaje y recorrer todo el mundo con mi persona favorita.</p>
                             </div>
                         </div>
                     </div>
@@ -75,6 +72,69 @@
             </div>
         </div>
     </div>
+<script>
+     let currentSlide = 0;
+        const totalSlides = 4;
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.nav-dot');
 
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Auto-avanzar el carrusel cada 5 segundos
+        let autoSlideInterval = setInterval(nextSlide, 5000);
+
+        // Pausar auto-avance cuando el mouse está sobre el carrusel
+        const carouselContainer = document.querySelector('.carousel-container');
+
+        carouselContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        });
+
+        // Soporte para gestos táctiles en móviles
+        let startX = 0;
+        let endX = 0;
+
+        carouselContainer.addEventListener('touchstart', (e) => {
+            startX = e.changedTouches[0].screenX;
+        });
+
+        carouselContainer.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (startX - endX > 50) {
+                nextSlide();
+            } else if (endX - startX > 50) {
+                prevSlide();
+            }
+        }
+</script>
 </body>
 </html>
